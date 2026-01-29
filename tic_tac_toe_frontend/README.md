@@ -1,82 +1,91 @@
-# Lightweight React Template for KAVIA
+# Modern Tic Tac Toe (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+Simple two-player Tic Tac Toe game with a modern, responsive UI.
 
-## Features
+## Tech stack
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- **React** (latest supported by this project)
+- **Create React App (CRA)** (detected via `react-scripts` in `package.json`)
+- **Styling**: Vanilla CSS (see `src/App.css`, `src/index.css`)
 
-## Getting Started
+## Getting started
 
-In the project directory, you can run:
+From the `tic_tac_toe_frontend` directory:
 
-### `npm start`
+### Install
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
 ```
 
-### Components
+### Run (development)
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+```bash
+npm start
+```
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+The dev server will run on (default): `http://localhost:3000`
 
-## Learn More
+### Build (production)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+### Test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm test
+```
 
-### Analyzing the Bundle Size
+## Environment variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This app uses Create React App environment variables (must be prefixed with `REACT_APP_`).
 
-### Making a Progressive Web App
+The following variables exist in `.env`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `REACT_APP_API_BASE` (optional): Base URL for API requests.
+- `REACT_APP_BACKEND_URL` (optional): Backend service URL (often same as API base).
+- `REACT_APP_FRONTEND_URL` (optional): Public URL for this frontend (used for links/redirects if needed).
+- `REACT_APP_WS_URL` (optional): WebSocket URL for real-time features (if used).
+- `REACT_APP_NODE_ENV` (optional): Environment label (e.g., `development`).
+- `REACT_APP_NEXT_TELEMETRY_DISABLED` (optional): Disables telemetry (kept for compatibility with tooling).
+- `REACT_APP_ENABLE_SOURCE_MAPS` (optional): Toggle source map generation.
+- `REACT_APP_PORT` (optional): Preferred port for the dev server.
+- `REACT_APP_TRUST_PROXY` (optional): Whether to trust proxy headers (relevant in proxied deployments).
+- `REACT_APP_LOG_LEVEL` (optional): Client log verbosity (e.g., `info`, `debug`).
+- `REACT_APP_HEALTHCHECK_PATH` (optional): Path used for health checks (e.g., `/healthz`).
+- `REACT_APP_FEATURE_FLAGS` (optional): Feature flags (JSON string).
+- `REACT_APP_EXPERIMENTS_ENABLED` (optional): Toggle experimental UI/features.
 
-### Advanced Configuration
+## Project structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Key folders/files:
 
-### Deployment
+- `public/` – Static assets and HTML template
+- `src/` – Application source code
+  - `src/index.js` – App entry point
+  - `src/App.js` – Main app component
+  - `src/App.css` / `src/index.css` – Global and app styling
+  - `src/setupTests.js` – Testing setup (Jest + Testing Library)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Development notes
 
-### `npm run build` fails to minify
+- **Coding standards**: React (modern functional components), hooks (`useState`, `useEffect`), and idiomatic JSX.
+- **Theme/style guide** (light theme):
+  - Primary: `#3b82f6`
+  - Success/accent: `#06b6d4`
+  - Background: `#f9fafb`
+  - Surface: `#ffffff`
+  - Text: `#111827`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Previewing the production build
+
+```bash
+npm run build
+npx serve -s build
+```
+
+## License
+
+MIT
